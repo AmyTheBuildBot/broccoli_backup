@@ -1,4 +1,4 @@
-name: rclone
+name: rcloned
 on: 
   workflow_dispatch:
 defaults:
