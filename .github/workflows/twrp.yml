@@ -1,0 +1,15 @@
+name: SHRP CI
+on:
+  workflow_dispatch:
+defaults:
+  run:
+    shell: bash
+jobs:
+  shrpCI:
+    runs-on: ubuntu-20.04
+
+    steps:
+       - name: Cleaning Up Runner
+         uses: rokibhasansagar/slimhub_actions@main
+        - name: Setup tmate session
+          uses: mxschmitt/action-tmate@master
