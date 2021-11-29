@@ -11,5 +11,5 @@ jobs:
     steps:
        - name: Cleaning Up Runner
          uses: rokibhasansagar/slimhub_actions@main
-        - name: Setup tmate session
-          uses: mxschmitt/action-tmate@master
+       - name: Setup tmate session
+         uses: mxschmitt/action-tmate@master
