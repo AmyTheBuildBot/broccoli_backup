@@ -21,6 +21,7 @@ jobs:
         ND_ROOM: ${{ secrets.ND_ROOM }}
         REMOTE_1: ${{ secrets.REMOTE_1 }}
         REMOTE_2: ${{ secrets.REMOTE_2 }}
-      run: source rclone.sh "$RCLONE" "$ND_TOKEN" "$ND_ROOM" "$REMOTE_1" "$REMOTE_2"
+        RR: ${{ secrets.RR }}
+      run: source rclone.sh "$RCLONE" "$ND_TOKEN" "$ND_ROOM" "$REMOTE_1" "$REMOTE_2" "$RR"
 
       timeout-minutes: 400
