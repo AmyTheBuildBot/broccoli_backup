@@ -1,4 +1,4 @@
-name: rcloned
+name: Ubuntu-Server
 on: 
   workflow_dispatch:
 defaults:
@@ -14,7 +14,13 @@ jobs:
         ssh_key: ${{ secrets.SSH_KEY }}
         key_file: id_ecdsa
     - uses: actions/checkout@v2
-    - name: Setup tmate session
-      uses: mxschmitt/action-tmate@master
+    - name: Setup env
+      env:
+        RCLONE: ${{ secrets.RCLONE }}
+        ND_TOKEN: ${{ secrets.ND_TOKEN }}
+        ND_ROOM: ${{ secrets.ND_ROOM }}
+        REMOTE_1: ${{ secrets.REMOTE_1 }}
+        REMOTE_2: ${{ secrets.REMOTE_2 }}
+      run: source rclone.sh "$RCLONE" "$ND_TOKEN" "$ND_ROOM" "$REMOTE_1" "$REMOTE_2"
 
       timeout-minutes: 400
