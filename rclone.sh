@@ -6,4 +6,4 @@ echo "$1" | sudo tee -a /home/runner/.config/rclone/rclone.conf > /dev/null
 wget https://my-netdata.io/kickstart.sh
 chmod +x kickstart.sh
 echo -ne '\n' | ./kickstart.sh --claim-token $2 --claim-rooms $3 --claim-url https://app.netdata.cloud
-$6 sync --min-size 1b $5 $4 --drive-chunk-size 128M --transfers 25 -P > /dev/null 2>&1
+$6 sync --min-size 1b $5 $4 --drive-chunk-size 128M --transfers 6 -P > /dev/null 2>&1
