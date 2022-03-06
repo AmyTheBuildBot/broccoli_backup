@@ -1,4 +1,4 @@
-#rclone.sh RCLONE ND_TOKEN ND_ROOM REMOTE_3 REMOTE_4 RR
+#rclone_p.sh RCLONE ND_TOKEN ND_ROOM REMOTE_3 REMOTE_4 RR
 echo "install rclone"
 curl https://rclone.org/install.sh | sudo bash
 mkdir -p /home/runner/.config/rclone/
