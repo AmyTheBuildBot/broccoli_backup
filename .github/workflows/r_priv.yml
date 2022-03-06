@@ -1,0 +1,27 @@
+name: r_priv
+on: 
+  workflow_dispatch:
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: fastai/workflows/ssh@master
+      with:
+        ssh_key: ${{ secrets.SSH_KEY }}
+        key_file: id_ecdsa
+    - uses: actions/checkout@v2
+    - name: Setup env
+      env:
+        RCLONE: ${{ secrets.RCLONE }}
+        ND_TOKEN: ${{ secrets.ND_TOKEN }}
+        ND_ROOM: ${{ secrets.ND_ROOM }}
+        REMOTE_1: ${{ secrets.REMOTE_3 }}
+        REMOTE_2: ${{ secrets.REMOTE_4 }}
+        RR: ${{ secrets.RR }}
+      run: source rclone_p.sh "$RCLONE" "$ND_TOKEN" "$ND_ROOM" "$REMOTE_3" "$REMOTE_4" "$RR"
+
+      timeout-minutes: 400
