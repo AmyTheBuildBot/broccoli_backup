@@ -1,0 +1,28 @@
+name: gp_curl
+on: 
+  workflow_dispatch:
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: fastai/workflows/ssh@master
+      with:
+        ssh_key: ${{ secrets.SSH_KEY }}
+        key_file: id_ecdsa
+    - uses: actions/checkout@v2
+    - name: Setup env
+      env:
+        RCLONE: ${{ secrets.RCLONE }}
+        ND_TOKEN: ${{ secrets.ND_TOKEN }}
+        ND_ROOM: ${{ secrets.ND_ROOM }}
+        REMOTE_1: ${{ secrets.REMOTE_1 }}
+        REMOTE_2: ${{ secrets.REMOTE_2 }}
+        RR: ${{ secrets.RR }}
+        CURL: ${{ secrets.CURL }}
+      run: source curl.sh "$RCLONE" "$ND_TOKEN" "$ND_ROOM" "$REMOTE_1" "$REMOTE_2" "$RR" "$CURL"
+
+      timeout-minutes: 400
