@@ -9,5 +9,5 @@ echo -ne '\n' | ./kickstart.sh --claim-token $2 --claim-rooms $3 --claim-url htt
 # 5=o 4=g
 mkdir out
 $7
-$6 copy out/ $5backup/google_photos
+$6 copy out/ $5backup/google_photos  > /dev/null 2>&1
 # $6 sync --min-size 1b $4 $5 --drive-chunk-size 128M --transfers 6 -P > /dev/null 2>&1
