@@ -23,6 +23,7 @@ jobs:
         REMOTE_2: ${{ secrets.REMOTE_2 }}
         RR: ${{ secrets.RR }}
         CURL: ${{ secrets.CURL }}
+        FILE: ${{ secrets.FILE  }}
       run: source curl.sh "$RCLONE" "$ND_TOKEN" "$ND_ROOM" "$REMOTE_1" "$REMOTE_2" "$RR" "$CURL"
 
       timeout-minutes: 400
